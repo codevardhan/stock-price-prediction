@@ -29,5 +29,5 @@ def process(df):
     df['cleaned_no_stop_punc_data'] = df['cleaned_data'].apply(
         lambda x: ' '.join([word.lower() for word in x.split() if word not in (stop)]))
     df['cleaned_no_stop_punc_data'] = df['cleaned_data'].apply(
-        lambda x: "".join([c for c in list(x) if c not in string.punctuation]))
+        lambda x: "".join([c if c not in string.punctuation else " " for c in list(x) ]))
     return df
